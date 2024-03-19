@@ -4,8 +4,9 @@
 using namespace std;
 
 void check(vector<bool> v){
+    int space = 4;
     for(int i=0; i<v.size(); i++){
-        //if(i && i%8==0)cout << " ";
+        if(i && i%space==0)cout << " ";
         cout << v[i];
     }
     cout << "\n";
@@ -286,9 +287,9 @@ void Sbox(vector<bool>* v){
 void p_permutation(vector<bool>* v){
     vector<bool> ret(32, false);
     int P[32] = { 16,  7, 20, 21, 29, 12, 28, 17,
-               1, 15, 23, 26,  5, 18, 31, 10,
-               2,  8, 24, 14, 32, 27,  3,  9,
-              19, 13, 30,  6, 22, 11,  4, 25};
+                   1, 15, 23, 26,  5, 18, 31, 10,
+                   2,  8, 24, 14, 32, 27,  3,  9,
+                  19, 13, 30,  6, 22, 11,  4, 25};
 
     for(int i=0; i<32; i++)
         ret[i] = (*v)[P[i]-1];
@@ -298,7 +299,7 @@ void p_permutation(vector<bool>* v){
 
 int main()
 {
-    string M = "0123456789ABCDEF"; //plaintext for Hex
+    string M = "ABCDEF9873216540"; //plaintext for Hex
     string K = "0001001100110100010101110111100110011011101111001101111111110001"; //Key
 
     if(M.length() != 16 || K.length() != 64){ //exception case
